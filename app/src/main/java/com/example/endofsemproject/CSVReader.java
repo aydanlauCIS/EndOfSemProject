@@ -47,9 +47,8 @@ public class CSVReader {
 
                 String percentage = "N/A";
                 if (col_no > 7) {
+                    percentage = values[7].trim();
                     if (percentage.length() < 2) {
-                        percentage = values[7].trim();
-                    } else {
                         percentage = "N/A";
                     }
                 }
