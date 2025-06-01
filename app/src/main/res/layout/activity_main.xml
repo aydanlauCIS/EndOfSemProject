@@ -1,148 +1,444 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--CODE BELOW WAS WRITTEN IN AI -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!--This entire file is basically AIed-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E6F7FF"
-    android:fillViewport="true">
+    tools:context=".MainActivity">
 
-    <!-- Main content container -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:text="Top 10 CO₂ Polluters (2020)"
+        android:textColor="#1565C0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
 
-        <!-- Screen title -->
-        <TextView
+    <!-- Search View -->
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#B3E5FC"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search country..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Polluters Table -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintBottom_toTopOf="@+id/buttonContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <TableLayout
+            android:id="@+id/pollutersTable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Top 10 CO₂ Polluters (2022)"
-            android:textSize="24sp"
-            android:textColor="#1565C0"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Search container -->
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:queryHint="Search country..."
-            android:background="#B3E5FC"
-            android:iconifiedByDefault="false"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- List container -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:stretchColumns="1"
             android:background="#FFFFFF"
             android:padding="8dp"
             android:elevation="4dp">
 
-            <!-- Column headers -->
-            <LinearLayout
+            <!-- Header Row -->
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:background="#B3E5FC"
                 android:paddingVertical="8dp">
-
-                <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="#"
-                    android:textColor="#1565C0"
-                    android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.1"
+                    android:text="#"
+                    android:textColor="#1565C0"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
                     android:text="Country"
                     android:textColor="#1565C0"
                     android:textStyle="bold"
-                    android:paddingStart="16dp"/>
+                    android:paddingStart="8dp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Emissions"
+                    android:layout_weight="0.4"
+                    android:text="Emissions (tons)"
                     android:textColor="#1565C0"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+                    android:textStyle="bold"
+                    android:gravity="end"/>
+            </TableRow>
 
-            <!-- Country item template -->
-            <LinearLayout
+            <!-- Row 1 -->
+            <TableRow
+                android:id="@+id/row1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp"
-                android:background="?android:attr/selectableItemBackground">
+                android:paddingVertical="12dp">
 
                 <TextView
                     android:id="@+id/rank1"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textColor="#1565C0"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:gravity="center"/>
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
 
                 <TextView
                     android:id="@+id/country1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Country Name"
-                    android:textSize="16sp"
-                    android:paddingStart="16dp"/>
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
 
                 <TextView
                     android:id="@+id/emissions1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="0000"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
                     android:textColor="#D32F2F"/>
-            </LinearLayout>
+            </TableRow>
 
-            <!-- Repeat country item template 9 more times -->
+            <!-- Row 2 -->
+            <TableRow
+                android:id="@+id/row2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/rank2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
 
-        <!-- Action buttons container -->
-        <LinearLayout
-            android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/country2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/emissions2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
+                    android:textColor="#D32F2F"/>
+            </TableRow>
+
+            <!-- Row 3 -->
+            <TableRow
+                android:id="@+id/row3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:id="@+id/rank3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
+
+                <TextView
+                    android:id="@+id/country3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/emissions3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
+                    android:textColor="#D32F2F"/>
+            </TableRow>
+
+            <!-- Row 4 -->
+            <TableRow
+                android:id="@+id/row4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:id="@+id/rank4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
+
+                <TextView
+                    android:id="@+id/country4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/emissions4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
+                    android:textColor="#D32F2F"/>
+            </TableRow>
+
+            <!-- Row 5 -->
+            <TableRow
+                android:id="@+id/row5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:id="@+id/rank5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
+
+                <TextView
+                    android:id="@+id/country5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/emissions5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
+                    android:textColor="#D32F2F"/>
+            </TableRow>
+
+            <!-- Row 6 -->
+            <TableRow
+                android:id="@+id/row6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:id="@+id/rank6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
+
+                <TextView
+                    android:id="@+id/country6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/emissions6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
+                    android:textColor="#D32F2F"/>
+            </TableRow>
+
+            <!-- Row 7 -->
+            <TableRow
+                android:id="@+id/row7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:id="@+id/rank7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
+
+                <TextView
+                    android:id="@+id/country7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/emissions7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
+                    android:textColor="#D32F2F"/>
+            </TableRow>
+
+            <!-- Row 8 -->
+            <TableRow
+                android:id="@+id/row8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:id="@+id/rank8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
+
+                <TextView
+                    android:id="@+id/country8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/emissions8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
+                    android:textColor="#D32F2F"/>
+            </TableRow>
+
+            <!-- Row 9 -->
+            <TableRow
+                android:id="@+id/row9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:id="@+id/rank9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
+
+                <TextView
+                    android:id="@+id/country9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/emissions9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
+                    android:textColor="#D32F2F"/>
+            </TableRow>
+
+            <!-- Row 10 -->
+            <TableRow
+                android:id="@+id/row10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:id="@+id/rank10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#1565C0"/>
+
+                <TextView
+                    android:id="@+id/country10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/emissions10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="end"
+                    android:textColor="#D32F2F"/>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+    <!-- Button Container -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnSelectedCountry"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:weightSum="2">
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#42A5F5"
+            android:text="Selected Country"
+            android:textColor="#FFFFFF"/>
 
-            <Button
-                android:id="@+id/btnSelectedCountry"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Selected Country"
-                android:backgroundTint="#42A5F5"
-                android:textColor="#FFFFFF"
-                android:layout_marginEnd="8dp"/>
-
-            <Button
-                android:id="@+id/btnFilterByYear"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Filter By Year"
-                android:backgroundTint="#42A5F5"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/btnFilterByYear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#42A5F5"
+            android:text="Filter By Year"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
-</ScrollView>
-    <!--CODE ABOVE WAS WRITTEN WITH AI-->
+</androidx.constraintlayout.widget.ConstraintLayout>
